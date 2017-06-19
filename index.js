@@ -6,6 +6,8 @@ module.exports = function(babel) {
   let t = babel.types;
 
   return {
+    name: 'glimmer-inline-precompile',
+
     visitor: {
       ImportDeclaration(path, state) {
         let node = path.node;
