@@ -1,0 +1,18 @@
+{
+  "name": "babel-plugin-glimmer-inline-precompile",
+  "version": "0.0.0",
+  "description": "Use tagged template strings to precompile glimmer templates inside your JS files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "qunit tests/**/*-test.js"
+  },
+  "keywords": [
+    "babel-plugin"
+  ],
+  "author": "Robert Jackson <me@rwjblue.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "qunit-eslint": "^1.0.0",
+    "qunitjs": "^2.3.3"
+  }
+}
