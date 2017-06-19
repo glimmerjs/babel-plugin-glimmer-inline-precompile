@@ -42,3 +42,6 @@ module.exports = function(babel) {
     },
   };
 };
+
+
+module.exports.baseDir = () => __dirname;
