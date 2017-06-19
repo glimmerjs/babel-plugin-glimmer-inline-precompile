@@ -19,5 +19,14 @@
   },
   "peerDependencies": {
     "@glimmer/compiler": "> 0.23.0 || > 0.24.0-alpha.1 || > 0.25.0-alpha.1"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glimmerjs/babel-plugin-glimmer-inline-precompile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/glimmerjs/babel-plugin-glimmer-inline-precompile/issues"
+  },
+  "homepage": "https://github.com/glimmerjs/babel-plugin-glimmer-inline-precompile#readme"
 }
