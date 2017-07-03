@@ -12,7 +12,8 @@ module.exports = function(babel) {
       ImportDeclaration(path, state) {
         let node = path.node;
 
-        if (t.isLiteral(node.source, { value: 'glimmer-inline-precompile' })) {
+        let matchingImportPath = state.opts.importPath || 'glimmer-inline-precompile';
+        if (t.isLiteral(node.source, { value: matchingImportPath })) {
           let first = node.specifiers && node.specifiers[0];
 
           state.importId = state.importId || path.scope.generateUidIdentifierBasedOnNode(path.node.id);

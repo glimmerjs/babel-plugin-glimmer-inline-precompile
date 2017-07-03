@@ -19,11 +19,13 @@ for (let key in require.cache) {
 const GlimmerInlinePrecompile = require('./index');
 const GlimmerInlinePrecompileAddon = require('./ember-addon-main');
 
-function transform(source) {
+function transform(source, _plugins) {
+  let plugins = _plugins || [
+    [GlimmerInlinePrecompile, { precompile: input => JSON.stringify(input.toUpperCase()) }],
+  ];
+
   let result = babel.transform(source, {
-    plugins: [
-      [GlimmerInlinePrecompile, { precompile: input => JSON.stringify(input.toUpperCase()) }],
-    ],
+    plugins,
   });
 
   return result.code;
@@ -60,6 +62,14 @@ QUnit.module('glimmer-inline-precompile', () => {
 
 
     });
+  });
+
+  QUnit.test('allows configuring import path to replace', assert => {
+    let actual = transform(`import hbs from 'herpy/derpy/doo'; let template = hbs\`{{hello}}\`;`, [
+      [GlimmerInlinePrecompile, { importPath: 'herpy/derpy/doo', precompile: input => JSON.stringify(input.toUpperCase()) }],
+    ]);
+
+    assert.equal(actual, `let template = "{{HELLO}}";`);
   });
 });
 
